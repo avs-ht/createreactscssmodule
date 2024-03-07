@@ -1,0 +1,83 @@
+{
+  "name": "createreactstylemodule",
+  "displayName": "React Style Module",
+  "description": "This extension create a react style module",
+  "publisher": "crsm",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": ["Other", "Snippets"],
+  "keywords": ["react", "scss", "style", "css"],
+  "pricing": "Free",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands":[
+      {
+        "command": "crsm.addModuleSCSS",
+        "title": "Add SCSS module"
+      },
+      {
+        "command": "crsm.addModuleCSS",
+        "title": "Add CSS module"
+      },
+      {
+        "command": "crsm.pasteStyle",
+        "title": "Paste construction like 'className={(yourPrefix).}' "
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceLangId == javascriptreact || resourceLangId == typescriptreact && resourceScheme == file",
+          "command": "crsm.addModuleSCSS",
+          "group": "crsm-group@1"
+        },
+        {
+          "when": "resourceLangId == javascriptreact || resourceLangId == typescriptreact && resourceScheme == file",
+          "command": "crsm.addModuleCSS",
+          "group": "crsm-group@2"
+        }
+      ]
+    },
+    "keybindings":[
+      {
+        "command": "crsm.pasteStyle",
+        "key": "ctrl+q",
+        "mac": "cmd+q",
+        "when": "editorTextFocus && (editorLangId == typescriptreact || editorLangId == javascriptreact)"
+      }
+    ],
+    "configuration": {
+      "title": "Style React Module",
+      "properties": {
+        "crsm.startOfStyle": {
+          "type": "string",
+          "default": "styles",
+          "description": "Суффикс, который будет парситься в файле, а также добавлять сочетанием клавиш s + s/c + c"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.86.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
