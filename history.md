@@ -1,4 +1,4 @@
-# v1.0
+# v0.0.1
 - Added 2 buttons to explorer context menu for .tsx/.jsx files: 
     - Add SCSS module
     - Add CSS module
@@ -7,7 +7,7 @@
 - Hotkeys:
     - Ctrl/cmd + Q - Adds a construct such as "className={yourStartOfStyle.$0}" and moves the cursor to $0
 
-# v1.1
+# v0.0.2
 - Hotkeys:
     - Ctrl/cmd + U - Add a construct such as "className={startOfStyle.$0}"
     - Ctrl/cmd + K - Add a construct such as "className={startOfStyle["$0"]}"
