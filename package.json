@@ -3,7 +3,7 @@
   "displayName": "React Style Module",
   "description": "This extension create a react style module",
   "publisher": "crsm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "engines": {
     "vscode": "^1.86.0"
@@ -24,8 +24,12 @@
         "title": "Add CSS module"
       },
       {
-        "command": "crsm.pasteStyle",
+        "command": "crsm.pasteStyleDot",
         "title": "Paste construction like 'className={(yourPrefix).}' "
+      },
+      {
+        "command": "crsm.pasteStyleBrackets",
+        "title": "Paste construction like 'className={(yourPrefix)[\"\"]}'"
       }
     ],
     "menus": {
@@ -44,9 +48,15 @@
     },
     "keybindings":[
       {
-        "command": "crsm.pasteStyle",
-        "key": "ctrl+q",
-        "mac": "cmd+q",
+        "command": "crsm.pasteStyleDot",
+        "key": "ctrl+u",
+        "mac": "cmd+u",
+        "when": "editorTextFocus && (editorLangId == typescriptreact || editorLangId == javascriptreact)"
+      },
+      {
+        "command": "crsm.pasteStyleBrackets",
+        "key": "ctrl+k",
+        "mac": "cmd+k",
         "when": "editorTextFocus && (editorLangId == typescriptreact || editorLangId == javascriptreact)"
       }
     ],
